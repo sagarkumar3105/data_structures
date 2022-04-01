@@ -1,8 +1,8 @@
-class dynamic
+class dynamicArray
 {
 	int arr[];
 	int current; //current location of present elemnt
-	dynamic(int n)
+	dynamicArray(int n)
 	{
 		arr=new int[n];
 		current=0;
@@ -70,7 +70,7 @@ public class dArray
 {
 	public static void main(String[] arg)
 	{
-		dynamic A=new dynamic(2);
+		dynamicArray A=new dynamicArray(2);
 		A.add(1);
 		A.add(2);
 		A.add(3);
