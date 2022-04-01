@@ -1,7 +1,7 @@
 class dynamic
 {
 	int arr[];
-	int current; //current location of present elemnt
+	int current; //current location of present element
 	dynamic(int n)
 	{
 		arr=new int[n];
@@ -75,6 +75,40 @@ class dynamic
 			System.out.println("Array is not Empty");
 			
 	}
+	
+	int indexOf(int k)
+	{
+		int flag=0;
+		for(int i=0;i<current;i++)
+		{	if(arr[i]==k)
+			{
+				flag=1;
+				return i;
+			}
+		}
+		//-1 -> element not present
+		return -1 ;
+		
+	}
+	
+	
+	void search(int k)
+	{
+		int flag=0,i=0;
+		for(;i<current;i++)
+		{
+			if(arr[i]==k)
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==1)
+				System.out.println("Element present in the Array at index"+i);
+		else
+			System.out.println("Element not present in the Array");
+			
+	}
 }
 public class dArray
 {
@@ -91,5 +125,7 @@ public class dArray
 		A.delete(2);
 		A.print();
 		A.isEmpty();
+		System.out.println("Index of 45 is "+A.indexOf(45));
+		A.search(4);
 	}
 }
