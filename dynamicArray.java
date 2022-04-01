@@ -1,18 +1,18 @@
-class dynamicArray
+class dynamic
 {
 	int arr[];
 	int current; //current location of present elemnt
-	dynamicArray(int n)
+	dynamic(int n)
 	{
 		arr=new int[n];
-		current=0;
+		current=-1;
 	}
 	
 	void print()
 	{
-		System.out.println();
 		for(int i=0;i<current;i++)
 			System.out.print("|"+arr[i]);
+		System.out.println();
 	}
 	
 	int  getSize()
@@ -24,8 +24,10 @@ class dynamicArray
 	{
 		if(current<getSize())
 		{
-				arr[current]=k;
-				current++;
+			if(current<0)	//Initial Condition
+				current+=1;
+			arr[current]=k;
+			current++;
 		}
 		else
 		{
@@ -65,12 +67,21 @@ class dynamicArray
 			System.out.println("Array Already empty");
 		}
 	}
+	void isEmpty()
+	{
+		if(current<0)
+			System.out.println("Array is empty");
+		else
+			System.out.println("Array is not Empty");
+			
+	}
 }
 public class dArray
 {
 	public static void main(String[] arg)
 	{
-		dynamicArray A=new dynamicArray(2);
+		dynamic A=new dynamic(2);
+		A.isEmpty();
 		A.add(1);
 		A.add(2);
 		A.add(3);
@@ -79,5 +90,6 @@ public class dArray
 		A.print();
 		A.delete(2);
 		A.print();
+		A.isEmpty();
 	}
 }
